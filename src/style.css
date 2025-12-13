@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Global page scroll behaviour */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;     /* no horizontal scroll */
+  overflow-y: auto;       /* allow vertical scroll */
+  background-color: #000;
+}
+
+/* Hide page scrollbar visuals */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+html,
+body {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Hide scrollbars on specific elements (rows) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
