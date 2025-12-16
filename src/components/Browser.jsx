@@ -13,18 +13,26 @@ const Browser = () => {
   useSecondMovieList();
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <Header />
-      {gptSearch ? (
-        <SearchPage />
-      ) : (
-        <>
-          <MovieContainer />
-          <SecondaryContainer />
-        </>
-      )}
-    </div>
-  );
+  <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <Header />
+    {gptSearch ? (
+      <SearchPage />
+    ) : (
+      <div className="relative">
+        <MovieContainer />   {/* hero */}
+        <SecondaryContainer />  {/* rows */}
+        <div
+            className="
+              pointer-events-none
+              absolute inset-x-0 top-0 h-40
+              bg-linear-to-b from-black via-black/100 to-transparent
+            "/>
+      </div>
+
+    )}
+  </div>
+);
+
 };
 
 export default Browser;

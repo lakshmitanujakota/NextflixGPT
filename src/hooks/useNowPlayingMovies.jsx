@@ -15,7 +15,7 @@ export const useNowPlayingMovies=()=>{
     );
     const json = await data.json();
 
-    console.log(json);
+    
     dispatch(addNowPlayingMovie(json.results))
   };
 

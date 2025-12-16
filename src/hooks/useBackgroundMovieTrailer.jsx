@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addMovieTrailer } from "../utils/movieSlice";
+import { addMovieTrailer, setSelectedTrailer } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
 
-const useBackgroundMovieTrailer = (movieId) => {
+const useBackgroundMovieTrailer = (movieId, type="background") => {
   const dispatch = useDispatch();
 
   const getMovieVedios = async () => {
+    if (!movieId) return;
 
-     if (!movieId) return;
-     
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" +
         movieId +
@@ -22,12 +21,17 @@ const useBackgroundMovieTrailer = (movieId) => {
       (vedio) => vedio.type === "Trailer"
     );
     const trailerVedio = resultVedio.length ? resultVedio[0] : json.results[0];
-    dispatch(addMovieTrailer(trailerVedio));
+
+    if (type == "background") {
+      dispatch(addMovieTrailer(trailerVedio));
+    } else {
+      dispatch(setSelectedTrailer(trailerVedio));
+    }
   };
 
   useEffect(() => {
     getMovieVedios();
-  }, []);
+  }, [movieId]);
 };
 
 export default useBackgroundMovieTrailer;

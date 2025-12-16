@@ -1,10 +1,11 @@
 import SearchBar from "./SearchBar";
+import SearchContainer from "./SearchContainer";
 import { BG_NETFLIX_IMG } from "../utils/constants";
 
 const SearchPage = () => {
   return (
-    <div>
-      <div className="absoulte -z-10">
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 -z-10">
         <img
           className="w-full h-screen object-cover brightness-60"
           src={BG_NETFLIX_IMG}
@@ -12,6 +13,7 @@ const SearchPage = () => {
         />
       </div>
       <SearchBar />
+      <SearchContainer />
     </div>
   );
 };

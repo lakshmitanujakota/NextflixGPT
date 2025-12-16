@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux";
 import useBackgroundMovieTrailer from "../hooks/useBackgroundMovieTrailer";
 
-const VedioBackground = ({ movieId }) => {
-  const trailer = useSelector((store) => store.movies?.movieTrailer);
+const VedioBackground = () => {
 
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies?.nowPlayingMovies
+  );
+
+  const trailer = useSelector((store) => store.movies?.movieTrailer);
+  const movieId = nowPlayingMovies?.[0]?.id;
    
-  useBackgroundMovieTrailer(movieId);
+  useBackgroundMovieTrailer(movieId, "background");
 
    if (!movieId) return;
 

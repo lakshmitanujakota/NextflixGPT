@@ -14,8 +14,6 @@ export const useSecondMovieList=()=>{
       API_OPTIONS
     );
     const json = await data.json();
-
-    console.log(json);
     dispatch(addSecondMovieList(json.results))
   };
 
