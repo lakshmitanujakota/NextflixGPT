@@ -12,9 +12,9 @@ const SearchPage = () => {
           alt="logo"
         />
       </div>
-      <SearchBar />
-      <SearchContainer />
-    </div>
+        <SearchBar />
+        <SearchContainer />
+      </div>
   );
 };
 

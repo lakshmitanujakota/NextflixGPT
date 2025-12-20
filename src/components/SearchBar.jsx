@@ -12,13 +12,13 @@ const SearchBar = () => {
   const searchText = useRef(null);
 
   const handleSearchSubmit = async () => {
-    const searchAs =
-      "Based on the following input: " +
-      searchText.current.value +
-      ". Return ONLY the names of TOP 5 INDIAN MOVIES, comma-separated. " +
-      "Exclude adult, erotic, sexual, explicit, or 18+ movies. " +
-      "Movies must be family-friendly or mainstream cinema only. " +
-      "No explanations, no extra text.";
+    const searchAs = 
+  "Act as a clean, mainstream cinema database. " +
+  "Based on the following query: " + searchText.current.value + ". " +
+  "List the TOP 5 mainstream, family-friendly Indian movies. " +
+  "Only include movies with a 'U' or 'UA' rating. " + 
+  "Return ONLY the titles as a comma-separated list. " +
+  "No extra text.";
 
     const fetchMoviesTMDB = async (movieName) => {
       const data = await fetch(

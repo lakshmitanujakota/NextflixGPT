@@ -1,21 +1,17 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import MovieTrailer from "./MovieTrailer";
-import useBackgroundMovieTrailer from "../hooks/useBackgroundMovieTrailer";
+import { useDispatch } from "react-redux";
+import { setSelectedMovieId } from "../utils/movieSlice";
 
 const VedioTitle = ({ title, overview, movieId }) => {
   const [onClickMoreInfo, setOnClickMoreInfo] = useState(false);
-
-  const [selectedMovieId, setSelectedMovieId] = useState(null);
-
-  const trailer = useSelector((store) => store.movies.selectedTrailer);
+  const dispatch = useDispatch();
 
   const handlePlay = () => {
-    setSelectedMovieId(movieId);
+    dispatch(setSelectedMovieId(null));
+    setTimeout(() => {
+      dispatch(setSelectedMovieId(movieId));
+    }, 0);
   };
-
-  // Fetch trailer whenever movieId changes
-  useBackgroundMovieTrailer(selectedMovieId, "selected");
 
   const handleClickMoreInfo = () => {
     setOnClickMoreInfo(!onClickMoreInfo);
@@ -45,15 +41,9 @@ const VedioTitle = ({ title, overview, movieId }) => {
           className="bg-black text-white px-6 py-2 text-lg rounded-md font-semibold hover:bg-opacity-80 transition"
           onClick={handleClickMoreInfo}
         >
-          {onClickMoreInfo ?" Hide Info" : "More Info"}
+          {onClickMoreInfo ? " Hide Info" : "More Info"}
         </button>
       </div>
-      {selectedMovieId && trailer && (
-        <MovieTrailer
-          trailerKey={trailer?.key}
-          onClose={() => setSelectedMovieId(null)}
-        />
-      )}
     </div>
   );
 };
