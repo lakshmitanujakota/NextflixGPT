@@ -15,32 +15,26 @@ const Browser = () => {
   const dispatch = useDispatch();
 
   useBackgroundMovieTrailer("selected");
-
   useNowPlayingMovies();
   useSecondMovieList();
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Header />
+
       {gptSearch ? (
         <SearchPage />
       ) : (
         <div className="relative pt-16">
-          <MovieContainer /> {/* hero */}
-          <SecondaryContainer /> {/* rows */}
-          <div
-            className="
-              pointer-events-none
-              absolute inset-x-0 top-0 h-40
-              bg-linear-to-b from-black via-black/100 to-transparent
-            "
-          />
+          <div className="absolute inset-x-0 top-16 h-40 bg-gradient-to-b from-black via-black/90 to-transparent z-0 pointer-events-none" />
+          <MovieContainer />
+          <SecondaryContainer />
         </div>
       )}
 
       {trailer && (
         <MovieTrailer
-          trailerKey={trailer?.key}
+          trailerKey={trailer.key}
           onClose={() => dispatch(clearTrailerKey())}
         />
       )}

@@ -53,7 +53,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full flex justify-center px-6 ">
+    <div className="w-full flex justify-center px-6 mb-6 pt-20">
       <form
         className=" w-1/2 grid grid-cols-12 gap-3"
         onSubmit={(e) => e.preventDefault()}

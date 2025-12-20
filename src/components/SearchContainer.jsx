@@ -20,7 +20,7 @@ const SearchContainer = () => {
   if (!movies) return null;
 
   return (
-    <div className="relative z-20  px-6 pt-70">
+    <div className="relative z-10 px-6 mt-6">
       <MovieList
         title="Search Results"
         movies={filteredMovies}
