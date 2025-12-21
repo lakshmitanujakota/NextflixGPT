@@ -5,6 +5,7 @@ const movieSlice = createSlice({
   initialState: {
     nowPlayingMovies: null,
     nowSecondMovieList: null,
+    nowTopMovieList:null,
     backgroundMovieId: null,
     movieTrailer: null,
     selectedTrailer: null,
@@ -17,6 +18,9 @@ const movieSlice = createSlice({
     },
     addSecondMovieList: (state, action) => {
       state.nowSecondMovieList = action.payload;
+    },
+    addTopMovieList: (state, action) => {
+      state.nowTopMovieList = action.payload;
     },
     setBackgroundMovieId: (state, action) => {
       state.backgroundMovieId = action.payload;
@@ -41,6 +45,7 @@ export const {
   addNowPlayingMovie,
   addMovieTrailer,
   addSecondMovieList,
+  addTopMovieList,
   setBackgroundMovieId,
   setSelectedTrailer,
   setSelectedMovieId,

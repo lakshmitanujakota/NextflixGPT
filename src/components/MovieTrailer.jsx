@@ -10,7 +10,8 @@ const MovieTrailer = ({ trailerKey, onClose }) => {
       <div className="relative w-[90%] max-w-6xl aspect-video z-10 pointer-events-auto">
         <button
           onClick={onClose}
-          className="absolute -top-10 right-0 text-white text-xl"
+          className="absolute -top-10 right-0 text-white text-xl hover:scale-105 
+                     cursor-pointer"
         >
           ✕
         </button>

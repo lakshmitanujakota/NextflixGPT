@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import {addNowPlayingMovie} from "../utils/movieSlice";
+import {addNowPlayingMovie,setBackgroundMovieId} from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
 
 
@@ -17,6 +17,9 @@ export const useNowPlayingMovies=()=>{
 
     
     dispatch(addNowPlayingMovie(json.results))
+    if (json.results?.length) {
+        dispatch(setBackgroundMovieId(json.results[0].id)); // important
+      }
   };
 
   useEffect(() => {

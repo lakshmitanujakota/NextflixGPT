@@ -66,10 +66,11 @@ const Header = () => {
             ))}
           </select>
         )}
-        <button className="p-4 text-white text-2xl" onClick={handleSearchClick}>
+        {user && ( <button className="p-4 text-white text-2xl" onClick={handleSearchClick}>
           {" "}
           {toggleSearch ? "Home" : "Search"}
         </button>
+         )}
         {user && (
           <button onClick={handleSignOut} className=" text-white text-2xl">
             Sign Out

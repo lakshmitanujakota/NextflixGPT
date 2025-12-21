@@ -27,7 +27,7 @@ const SecondaryContainer = () => {
       />
       <MovieList
         title="Romantic"
-        movies={movies.nowPlayingMovies}
+        movies={movies.nowTopMovieList}
         onMovieClick={handleMovieClick}
       />
       <MovieList

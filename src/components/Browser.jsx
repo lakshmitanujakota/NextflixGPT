@@ -2,6 +2,7 @@ import Header from "./Header";
 import MovieContainer from "./MovieContainer";
 import { useNowPlayingMovies } from "../hooks/useNowPlayingMovies";
 import { useSecondMovieList } from "../hooks/useSecondMovieList";
+import { useTopRated } from "../hooks/useTopRated";
 import SecondaryContainer from "./SecondaryContainer";
 import SearchPage from "./SearchPage";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +18,7 @@ const Browser = () => {
   useBackgroundMovieTrailer("selected");
   useNowPlayingMovies();
   useSecondMovieList();
+  useTopRated();
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
